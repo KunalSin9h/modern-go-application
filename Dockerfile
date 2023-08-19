@@ -1,4 +1,4 @@
-FROM golang:1.17-alpine3.14 AS builder
+FROM golang:1.21-alpine AS builder
 
 ENV GOFLAGS="-mod=readonly"
 
@@ -31,7 +31,7 @@ RUN set -xe && \
     fi
 
 
-FROM alpine:3.14
+FROM alpine:latest
 
 RUN apk add --update --no-cache ca-certificates tzdata bash curl
 

@@ -1,6 +1,6 @@
 module github.com/sagikazarmark/modern-go-application
 
-go 1.17
+go 1.21
 
 require (
 	contrib.go.opencensus.io/exporter/ocagent v0.7.0
