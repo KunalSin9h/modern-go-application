@@ -2,7 +2,7 @@
   description = "Modern Go Application example";
 
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/release-23.05";
     flake-utils.url = "github:numtide/flake-utils";
     goflake.url = "github:sagikazarmark/go-flake";
     goflake.inputs.nixpkgs.follows = "nixpkgs";
@@ -16,7 +16,8 @@
 
           overlays = [ goflake.overlay ];
         };
-        buildDeps = with pkgs; [ git go_1_17 gnumake ];
+        # Currently go is 1.20.7, soon going to be 1.21
+        buildDeps = with pkgs; [ git go gnumake ];
         devDeps = with pkgs; buildDeps ++ [
           golangci-lint
           gotestsum
@@ -25,7 +26,7 @@
           protoc-gen-go
           protoc-gen-go-grpc
           protoc-gen-kit
-          # gqlgen
+          gqlgen
           openapi-generator-cli
           ent
         ];
